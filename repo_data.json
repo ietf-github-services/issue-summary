@@ -1,0 +1,161 @@
+{
+  "httpbis": {
+    "group_chairs": [
+      "mnot",
+      "tfpauly"
+    ],
+    "group_email": "ietf-http-wg@w3.org",
+    "group_name": "httpbis",
+    "group_type": null,
+    "repos": {
+      "httpwg/http-core": {
+          "issue_summary_to": ["mnot@mnot.net"],
+          
+        "group": "httpbis",
+        "repo_type": "specs",
+        "report_exclude_labels": [
+          "editorial"
+        ],
+        "report_to": "group_email",
+        "revisions_tagged": false,
+        "specs": {
+          "draft-ietf-httpbis-cache-latest": {
+            "github-issue-label": "cache",
+            "title": "HTTP Caching"
+          },
+          "draft-ietf-httpbis-messaging-latest": {
+            "github-issue-label": null,
+            "title": "HTTP/1.1 Messaging"
+          },
+          "draft-ietf-httpbis-semantics-latest": {
+            "github-issue-label": null,
+            "title": "HTTP Semantics"
+          }
+        }
+      },
+      "httpwg/http-extensions": {
+        "group": "httpbis",
+        "group_chairs": [
+          "mnot",
+          "tfpauly"
+        ],
+        "group_email": "ietf-http-wg@w3.org",
+        "primary": true,
+        "repo_type": "specs",
+        "report_exclude_labels": [
+          "editorial"
+        ],
+        "report_to": "group_email",
+        "revisions_tagged": true,
+        "specs": {
+          "draft-ietf-httpbis-bcp56bis": {
+            "github-issue-label": null,
+            "revision": 8,
+            "title": "Building Protocols with HTTP"
+          },
+          "draft-ietf-httpbis-cache-header": {
+            "github-issue-label": null,
+            "revision": 0,
+            "title": "The Cache HTTP Response Header"
+          },
+          "draft-ietf-httpbis-client-hints": {
+            "github-issue-label": null,
+            "revision": 7,
+            "title": "HTTP Client Hints"
+          },
+          "draft-ietf-httpbis-digest-headers": {
+            "github-issue-label": null,
+            "revision": 0,
+            "title": "Digest Headers"
+          },
+          "draft-ietf-httpbis-expect-ct": {
+            "github-issue-label": null,
+            "revision": 8,
+            "title": "Expect-CT Extension for HTTP"
+          },
+          "draft-ietf-httpbis-header-structure": {
+            "github-issue-label": null,
+            "revision": 13,
+            "title": "Structured Headers for HTTP"
+          },
+          "draft-ietf-httpbis-http2-secondary-certs": {
+            "github-issue-label": null,
+            "revision": 4,
+            "title": "Secondary Certificate Authentication in HTTP/2"
+          },
+          "draft-ietf-httpbis-http2-tls13": {
+            "github-issue-label": null,
+            "revision": 2,
+            "title": "Using TLS 1.3 with HTTP/2"
+          },
+          "draft-ietf-httpbis-proxy-status": {
+            "github-issue-label": "proxy-status",
+            "revision": 0,
+            "title": "The Proxy-Status HTTP Header Field"
+          },
+          "draft-ietf-httpbis-rand-access-live": {
+            "github-issue-label": null,
+            "revision": 4,
+            "title": "HTTP Random Access and Live Content"
+          },
+          "draft-ietf-httpbis-rfc6265bis": {
+            "github-issue-label": null,
+            "revision": 3,
+            "title": "Cookies: HTTP State Management Mechanism"
+          },
+          "draft-ietf-httpbis-variants": {
+            "github-issue-label": null,
+            "revision": 5,
+            "title": "HTTP Representation Variants"
+          }
+        }
+      }
+    }
+  },
+  "quic": {
+    "repos": {
+      "quicwg/base-drafts": {
+        "group": "quic",
+        "repo_type": "specs",
+        "report_exclude_labels": [
+          "editorial"
+        ],
+        "report_to": "group_email",
+        "revisions_tagged": true,
+        "spec_regex": "draft-ietf-quic-.+\\.md",
+        "specs": {
+          "draft-ietf-quic-http": {
+            "github-issue-label": null,
+            "revision": 23,
+            "title": "Hypertext Transfer Protocol Version 3 (HTTP/3)"
+          },
+          "draft-ietf-quic-invariants": {
+            "github-issue-label": null,
+            "revision": 7,
+            "title": "Version-Independent Properties of QUIC"
+          },
+          "draft-ietf-quic-qpack": {
+            "github-issue-label": null,
+            "revision": 10,
+            "title": "QPACK: Header Compression for HTTP/3"
+          },
+          "draft-ietf-quic-recovery": {
+            "github-issue-label": null,
+            "revision": 23,
+            "title": "QUIC Loss Detection and Congestion Control"
+          },
+          "draft-ietf-quic-tls": {
+            "github-issue-label": null,
+            "revision": 23,
+            "title": "Using TLS to Secure QUIC"
+          },
+          "draft-ietf-quic-transport": {
+            "github-issue-label": null,
+            "revision": 23,
+            "title": "QUIC: A UDP-Based Multiplexed and Secure Transport"
+          }
+        }
+      }
+    }
+  }
+}
