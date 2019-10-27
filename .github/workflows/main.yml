@@ -2,7 +2,7 @@ name: Summarise Issues
 
 on:
   schedule:
-    - cron: '30 */6 * * *'
+    - cron: '45 */6 * * *'
       
 jobs:
   build:
