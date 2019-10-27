@@ -25,8 +25,8 @@ jobs:
     - name: Summarise Issues
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        SENDER_EMAIL: do_not_reply@mnot.net
-        SMTP_SERVER: smtp.fastmail.com
+        EMAIL_FROM: do_not_reply@mnot.net
+        SMTP_HOST: smtp.fastmail.com
         SMTP_USERNAME: mnot@mnot.net
         SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
       run: |
