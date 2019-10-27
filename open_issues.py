@@ -84,6 +84,7 @@ def summarise_issues(repos):
 
 
 def send_email(receiver_email, subject, text, html):
+    sys.stderr.write(f"* Sending e-mail to {receiver_email}...\n")
     sender_email = os.environ.get("SENDER_EMAIL", None)
     smtp_server = os.environ.get("SMTP_SERVER", None)
     smtp_port = 465
