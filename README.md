@@ -1,5 +1,7 @@
 # Github Issues Summaries
 
+[![Actions Status](https://github.com/ietf-github-services/issue-summary/workflows/Summarise%20Issues/badge.svg)](https://github.com/ietf-github-services/issue-summary/actions)
+
 You can get a summary of all open issues e-mailed by adding the `issue_summary_to` field to your repository's `ietf.json` file (e.g., see [the link relation registry repo's](https://github.com/link-relations/registry/blob/master/ietf.json)). 
 
 See the [IETF Repository Data Service](https://github.com/ietf-github-services/repo-data#ietf-repository-data-service) for more information.
