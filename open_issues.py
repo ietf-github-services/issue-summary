@@ -5,7 +5,7 @@ Summarise open issues.
 
 Takes a `repo_data.json` summary as input; acts on the `issue_summary_to` field.
 
-See https://github.com/mnot/ietf-repo-data for more information.
+See https://github.com/ietf-github-services/repo-data for more information.
 """
 
 from collections import defaultdict
