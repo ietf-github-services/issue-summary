@@ -42,12 +42,12 @@ def find_people(repo_data_file):
         repos = repo_data[group]["repos"]
         for repo in repos:
             for person in repos[repo].get("issue_summary_to", []):
-                if "@" not in person:
+                if person == "group_email":
                     try:
-                        person = group[person]
+                        person = repo_data[group]["email"]
                     except KeyError:
                         sys.stderr.write(
-                            f"WARNING: Unrecognised person {person} for {group}\n"
+                            f"WARNING: Cannot find {person} for {group}.\n"
                         )
                         continue
                 people[person].append(repo)
