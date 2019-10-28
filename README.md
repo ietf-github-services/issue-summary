@@ -1,9 +1,4 @@
-# IETF Github tools
-
-This repository contains tools to help IETF efforts use GitHub. 
-
-
-## Open Issues Summaries
+# Github Issues Summaries
 
 You can get a summary of all open issues e-mailed by adding the `issue_summary_to` field to your repository's `ietf.json` file (e.g., see [the link relation registry repo's](https://github.com/link-relations/registry/blob/master/ietf.json)). 
 
