@@ -65,7 +65,6 @@ def summarise_issues(repos):
         issues = collapse_list(
             f"https://api.github.com/repos/{repo}/issues?state={state}&labels={labels}"
         )
-        text.append(f"## {repo}")
         sorted_issues = [
             i
             for i in sorted(issues, key=lambda issue: issue["created_at"])
@@ -73,9 +72,12 @@ def summarise_issues(repos):
         ]
         for issue in sorted_issues:
             issue["open_for"] = abs(delta_days(issue["created_at"]))
+
         html_data.append(
             {"id": repo, "name": repo_data["description"], "issues": sorted_issues}
         )
+
+        text.append(f"## {repo_data['description']}")
         if sorted_issues:
             for issue in sorted_issues:
                 text.append("* #%i: %s" % (issue["number"], issue["title"]))
