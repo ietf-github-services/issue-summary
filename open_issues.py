@@ -16,10 +16,8 @@ import os
 import smtplib
 import ssl
 import sys
-import time
 
 from jinja2 import Template
-import requests
 
 from github_utils import get, collapse_list, delta_days
 
@@ -74,7 +72,9 @@ def summarise_issues(repos):
         ]
         for issue in sorted_issues:
             issue["open_for"] = abs(delta_days(issue["created_at"]))
-        html_data.append({"id": repo, "name": repo_data['description'], "issues": sorted_issues})
+        html_data.append(
+            {"id": repo, "name": repo_data["description"], "issues": sorted_issues}
+        )
         if sorted_issues:
             for issue in sorted_issues:
                 text.append("* #%i: %s" % (issue["number"], issue["title"]))
