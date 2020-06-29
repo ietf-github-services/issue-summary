@@ -47,7 +47,9 @@ def get(url):
     return res
 
 
-def collapse_list(url, output=[]):
+def collapse_list(url, output=None):
+    if output is None:
+        output = []
     try:
         res = get(url)
     except IOError:
@@ -71,6 +73,8 @@ def collapse_list(url, output=[]):
 
 
 now = datetime.datetime.now()
+
+
 def delta_days(dateString):
     then = datetime.datetime.strptime(dateString, "%Y-%m-%dT%H:%M:%SZ")
     delta = now - then
