@@ -29,6 +29,7 @@ def run(repo_data_file, email=False):
         if email:
             send_email(person, "Open Issues Summary", text, html)
         else:
+            print(f"# {person}")
             print(text)
 
 
@@ -80,6 +81,7 @@ def summarise_issues(repos):
                 text.append("* #%i: %s" % (issue["number"], issue["title"]))
         else:
             text.append("No open issues.")
+        text.append("")
     return "\n".join(text), html.render(repos=html_data)
 
 
