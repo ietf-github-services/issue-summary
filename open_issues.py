@@ -41,6 +41,8 @@ def find_people(repo_data_file):
         repos = repo_data[group]["repos"]
         for repo in repos:
             for person in repos[repo].get("issue_summary_to", []):
+                if person.strip() == "":
+                    continue
                 if person == "group_email":
                     try:
                         person = repo_data[group]["email"]
