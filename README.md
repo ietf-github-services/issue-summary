@@ -1,4 +1,4 @@
-# Github Issues Summaries
+# E-Mailed Summaries of Github Issues
 
 [![Actions Status](https://github.com/ietf-github-services/issue-summary/workflows/Summarise%20Issues/badge.svg)](https://github.com/ietf-github-services/issue-summary/actions)
 
