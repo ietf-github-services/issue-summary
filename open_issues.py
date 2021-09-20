@@ -2,13 +2,8 @@
 
 """
 Summarise open issues.
-
-Takes a `repo_data.json` summary as input; acts on the `issue_summary_to` field.
-
-See https://github.com/ietf-github-services/repo-data for more information.
 """
 
-from collections import defaultdict
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 import json
@@ -18,53 +13,30 @@ import ssl
 import sys
 
 from jinja2 import Template
+import github_utils as github
 
-from github_utils import get, collapse_list, delta_days
 
-
-def run(repo_data_file, email=False):
-    people = find_people(repo_data_file)
+def run(args):
+    people = json.load(args.subscriber_file)
     for person in people:
-        text, html = summarise_issues(people[person])
-        if email:
-            send_email(person, "Open Issues Summary", text, html)
+        text, html = summarise_issues(person["repos"])
+        if args.email:
+            send_email(person["email"], "Open Issues Summary", text, html)
         else:
-            print(f"# {person}")
+            print(f"# {person['email']}")
             print(text)
-
-
-def find_people(repo_data_file):
-    with open(repo_data_file) as repo_data_fh:
-        repo_data = json.load(repo_data_fh)
-    people = defaultdict(list)
-    for group in repo_data:
-        repos = repo_data[group]["repos"]
-        for repo in repos:
-            for person in repos[repo].get("issue_summary_to", []):
-                if person.strip() == "":
-                    continue
-                if person == "group_email":
-                    try:
-                        person = repo_data[group]["email"]
-                    except KeyError:
-                        sys.stderr.write(
-                            f"WARNING: Cannot find {person} for {group}.\n"
-                        )
-                        continue
-                people[person].append(repo)
-    return people
 
 
 def summarise_issues(repos):
     text = []
     html_data = []
-    with open("open_issues.tpl") as tpl_fd:
+    with open("open_issues.tpl", encoding="utf-8") as tpl_fd:
         html = Template(tpl_fd.read())
     state = "open"
     labels = ""
     for repo in repos:
-        repo_data = get(f"https://api.github.com/repos/{repo}").json()
-        issues = collapse_list(
+        repo_data = github.get(f"https://api.github.com/repos/{repo}").json()
+        issues = github.collapse_list(
             f"https://api.github.com/repos/{repo}/issues?state={state}&labels={labels}"
         )
         sorted_issues = [
@@ -73,7 +45,7 @@ def summarise_issues(repos):
             if "pull_request" not in i
         ]
         for issue in sorted_issues:
-            issue["open_for"] = abs(delta_days(issue["created_at"]))
+            issue["open_for"] = abs(github.delta_days(issue["created_at"]))
 
         html_data.append(
             {"id": repo, "name": repo_data["description"], "issues": sorted_issues}
@@ -115,6 +87,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "-e", "--email", dest="email", action="store_true", help="send email"
     )
-    parser.add_argument("repo_data_file", help="The repo_data.json file location")
-    args = parser.parse_args()
-    run(args.repo_data_file, args.email)
+    parser.add_argument(
+        "subscriber_file", type=open, help="The subscribers.json file location"
+    )
+    run(parser.parse_args())

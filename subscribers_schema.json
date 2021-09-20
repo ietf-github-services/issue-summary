@@ -1,0 +1,23 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "type": "array",
+    "items": {
+        "type": "object",
+        "required": ["email", "repos"],
+        "properties": {
+            "email": {
+                "type": "string",
+                "format": "email"
+            },
+            "repos": {
+                "type": "array",
+                "items": {
+                    "type": "string",
+                    "pattern": "^[0-9a-zA-z.\\-_]+/[0-9a-zA-z.\\-_]+$",
+                    "minItems": 1,
+                    "uniqueItems": true
+                }
+            }
+        }
+    }
+}
