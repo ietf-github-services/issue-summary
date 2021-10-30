@@ -3,7 +3,8 @@
         "email": "mnot@mnot.net",
         "repos": [
             "protocol-registries/link-relations",
-            "protocol-registries/well-known-uris"
+            "protocol-registries/well-known-uris",
+            "protocol-registries/http-fields"
         ]
     },
     {
