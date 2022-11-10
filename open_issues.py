@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 
-"""
-Summarise open issues.
-"""
+"Summarise open issues."
 
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
